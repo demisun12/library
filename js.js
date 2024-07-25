@@ -23,6 +23,7 @@ function Book(title, author, pages, read) {
 function addBookToLibrary(title, author, pages, read) {
     const newBook = new Book(title,author,pages,read);
     myLibrary.push(newBook);
+    createCard(title, author, pages, read);
     console.log(myLibrary);
 }
 
@@ -54,9 +55,9 @@ function createCard(title,author,pages,read) {
     pagesDiv.textContent = pages + " pages";
 
     const readBtn = document.createElement("button");
-    readBtn.classList = "read";
+    readBtn.classList = read ? "read" : "unread";
     card.appendChild(readBtn);
-    readBtn.textContent = "Read";
+    readBtn.textContent = read ? "Read" : "Unread";
     readBtn.onclick = function() {
         read = !read;
         readBtn.classList.toggle("unread");
@@ -85,3 +86,36 @@ function displayLibrary(myLibrary) {
 }
 
 document.addEventListener("DOMContentLoaded", () => displayLibrary(myLibrary));
+
+const showBtn = document.getElementById("plus");
+const dialog = document.getElementById("addBook");
+const form = dialog.querySelector("form");
+const closeBtn = dialog.querySelector("#cancelBtn");
+const confirmBtn = dialog.querySelector("#confirm");
+
+showBtn.onclick = function() {
+    dialog.showModal();
+}
+
+closeBtn.onclick = function() {
+    event.preventDefault();
+    dialog.close();
+    form.reset();
+}
+
+confirmBtn.onclick = function() {
+    event.preventDefault();
+    const bookTitle = document.getElementById("book-title").value;
+    const bookAuthor = document.getElementById("book-author").value;
+    const bookPages = document.getElementById("book-pages").value;
+    const bookRead = document.getElementById("book-read").checked;
+
+    if(bookTitle && bookAuthor && bookPages) {
+        addBookToLibrary(bookTitle,bookAuthor,bookPages,bookRead);
+        dialog.close();
+        form.reset();
+    } else {
+        alert("Please fill out all required fields.")
+    }
+
+}
