@@ -66,44 +66,50 @@ h1 {
 
 .pages {
     font-size: 0.9rem;
+    margin-bottom: 5px;
 }
 
 button:hover {
     cursor: pointer;
 }
 
-.read {
-    margin-top: 5px;
-    margin-bottom: 10px;
-    background-color: steelblue;
-    border: none;
-    color: white;
-    padding: 10px 20px;
+.read, .unread {
+    width: 90px;
+    height: 30px;
+    text-align: center;
     border-radius: 20px;
+    font-weight: bold;
+}
+
+.read {
+    background-color: steelblue;
+    color: white;
+    border: none;
+}
+
+.unread {
+    background-color: white;
+    color: steelblue;
+    border: 2px solid steelblue;
 }
 
 .read:hover {
     background-color: rgb(142, 182, 215);
 }
 
-.unread {
-    margin-top: 5px;
-    margin-bottom: 10px;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 20px;
-    background-color: black;
-}
-
 .unread:hover {
-    background-color: darkgray;
+    background-color: white;    
+    color: lightsteelblue;
+    border: 2px solid lightsteelblue;
+
 }
 
 .delete {
+    margin-top: 15px;
     border: none;
     background-color: white;
     text-decoration: underline;
+    align-self: center;
 }
 
 .delete:hover {

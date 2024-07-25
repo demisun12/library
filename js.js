@@ -37,7 +37,7 @@ function checkTitles(title) {
     } );
 };
 
-function createCard(title,author,pages) {
+function createCard(title,author,pages,read) {
     const grid = document.querySelector(".books");
     const plusBtn = document.querySelector("#plus");
 
@@ -61,9 +61,15 @@ function createCard(title,author,pages) {
     pagesDiv.textContent = pages + " pages";
 
     const readBtn = document.createElement("button");
-    readBtn.className = "read";
+    readBtn.classList = "read";
     card.appendChild(readBtn);
     readBtn.textContent = "Read";
+    readBtn.onclick = function() {
+        read = !read;
+        readBtn.classList.toggle("unread");
+        readBtn.classList.toggle("read");
+        readBtn.textContent = read ? "Read" : "Unread";
+    }
 
     const deleteBtn = document.createElement("button");
     deleteBtn.className = "delete";
