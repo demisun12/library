@@ -51,7 +51,7 @@ h1 {
 }
 
 .title {
-    font-size: calc(2vw + 1vh);
+    font-size: calc(1.3vw + 1vh);
     font-weight: bold;
     color: steelblue;
     text-align: center;

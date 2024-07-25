@@ -27,15 +27,7 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 function checkTitles(title) {
-    const names = document.querySelectorAll(".title");
-    let titleExists = false;
-
-    names.forEach((elem) => {
-        if (!elem.textContent.includes(title)) {
-            titleExists = true;
-        };
-    } );
-    return titleExists;
+    return myLibrary.some(book => book.title === title);
 };
 
 function createCard(title,author,pages,read) {
@@ -84,3 +76,12 @@ function createCard(title,author,pages,read) {
         }
     }
 }
+
+
+function displayLibrary(myLibrary) {
+    myLibrary.forEach((book) => {
+        createCard(book.title,book.author,book.pages,book.read);
+    })
+}
+
+document.addEventListener("DOMContentLoaded", () => displayLibrary(myLibrary));
