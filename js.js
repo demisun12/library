@@ -26,9 +26,13 @@ function addBookToLibrary(title, author, pages, read) {
     console.log(myLibrary);
 }
 
-function displayBook() {
-    myLibrary.forEach((book) => function() {
-        createCard(book.title, book.author, book.pages, book.read);
-    });
-}
+function checkTitles(title) {
+    const names = document.querySelectorAll(".title");
+    let titleExists = false;
 
+    names.forEach((elem) => {
+        if (!elem.textContent.includes(title)) {
+            titleExists = true;
+        };
+    } );
+};
