@@ -7,9 +7,40 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script src="js.js"></script>
-    <div class="books">
-        
+    <div class="header">
+        <h1>DemiSun Library</h1>
     </div>
+    <div class="books">
+        <div class="card">
+            <div class="title">A Court of Thorns and Roses</div>
+            <div class="author">Author</div>
+            <div class="pages">XXX pages</div>
+            <div class="r-btn">
+                <button type="button" class="read">Read</button>
+            </div>
+            <div class="del-btn">
+                <button type="button" class="delete">Delete</button>
+            </div>
+        </div>
+        <button type="button" id="plus">&#65291;</button>
+    </div>
+
+    <dialog id="addBook">
+        <h2>New Book Information</h2>
+        <form>
+            <label for="book-title">Title:</label>
+            <input type="text" id="book-title" name="book-title" required>
+            <label for="book-author">Author:</label>
+            <input type="text" id="book-author" name="book-author" required>
+            <label for="book-pages">Pages:</label>
+            <input type="number" id="book-pages" name="book-pages" required>
+            <label for="book-read">Read:</label>
+            <input type="checkbox" id="book-read" name="book-read">
+            <button type="submit">Add Book</button>
+            <button type="button" id="cancelBtn">Cancel</button>
+        </form>
+    </dialog>
+
+    <script src="js.js"></script>
 </body>
 </html>
