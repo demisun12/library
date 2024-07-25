@@ -51,10 +51,11 @@ h1 {
 }
 
 .title {
-    font-size: 1.3em;
+    font-size: calc(2vw + 1vh);
     font-weight: bold;
     color: steelblue;
     text-align: center;
+    word-break: break-word;
 }
 
 .author {
