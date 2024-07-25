@@ -35,6 +35,7 @@ function checkTitles(title) {
             titleExists = true;
         };
     } );
+    return titleExists;
 };
 
 function createCard(title,author,pages,read) {
@@ -75,4 +76,11 @@ function createCard(title,author,pages,read) {
     deleteBtn.className = "delete";
     card.appendChild(deleteBtn);
     deleteBtn.textContent = "Delete";
+    deleteBtn.onclick = function() {
+        card.parentNode.removeChild(card);
+        const bookIndex = myLibrary.findIndex(book => book.title === title);
+        if (bookIndex !== -1) {
+            myLibrary.splice(bookIndex,1);
+        }
+    }
 }
