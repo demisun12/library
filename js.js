@@ -36,3 +36,37 @@ function checkTitles(title) {
         };
     } );
 };
+
+function createCard(title,author,pages) {
+    const grid = document.querySelector(".books");
+    const plusBtn = document.querySelector("#plus");
+
+    const card = document.createElement("div");
+    card.className = "card";
+    grid.insertBefore(card,plusBtn)
+    
+    const titleDiv = document.createElement("div");
+    titleDiv.className = "title";
+    card.appendChild(titleDiv);
+    titleDiv.textContent = title;
+
+    const authorDiv = document.createElement("div");
+    authorDiv.className = "author";
+    card.appendChild(authorDiv);
+    authorDiv.textContent = author;
+
+    const pagesDiv = document.createElement("div");
+    pagesDiv.className = "pages";
+    card.appendChild(pagesDiv);
+    pagesDiv.textContent = pages + " pages";
+
+    const readBtn = document.createElement("button");
+    readBtn.className = "read";
+    card.appendChild(readBtn);
+    readBtn.textContent = "Read";
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.className = "delete";
+    card.appendChild(deleteBtn);
+    deleteBtn.textContent = "Delete";
+}
